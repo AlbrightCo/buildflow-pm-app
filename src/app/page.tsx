@@ -148,7 +148,7 @@ export default function Home() {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/C5dZ58ZqDNc?autoplay=1&mute=0"
+                  src="https://www.youtube.com/embed/LXivk70o3z8?autoplay=1&mute=0"
                   title="BuildFlow Demo"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
