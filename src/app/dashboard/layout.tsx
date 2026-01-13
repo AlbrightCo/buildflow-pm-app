@@ -47,10 +47,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     </h1>
                 </div>
                 <nav className="mt-6 px-4 space-y-2">
-                    <a href="#" className="block px-4 py-2 rounded-lg bg-blue-50 text-blue-700 font-medium">Dashboard</a>
-                    <a href="#" className="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-zinc-400 dark:hover:bg-zinc-900">Projects</a>
-                    <a href="#" className="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-zinc-400 dark:hover:bg-zinc-900">Tasks</a>
-                    <a href="#" className="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-zinc-400 dark:hover:bg-zinc-900">Team</a>
+                    <a href="/dashboard" className="block px-4 py-2 rounded-lg bg-blue-50 text-blue-700 font-medium">Dashboard</a>
+                    <a href="/dashboard/projects" className="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-zinc-400 dark:hover:bg-zinc-900">Projects</a>
+                    <a href="/dashboard/tasks" className="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-zinc-400 dark:hover:bg-zinc-900">Tasks</a>
+                    <a href="/dashboard/team" className="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-zinc-400 dark:hover:bg-zinc-900">Team</a>
                 </nav>
             </aside>
 
