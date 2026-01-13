@@ -48,11 +48,30 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <Link href="/login" className="hidden md:block text-sm font-medium text-slate-300 hover:text-white transition-colors">Sign In</Link>
             <Link href="/login">
-              <Button className="bg-blue-600 hover:bg-blue-500 text-white rounded-full px-6 py-5 shadow-lg shadow-blue-500/25 border border-blue-400/20">
+              <Button className="hidden md:flex bg-blue-600 hover:bg-blue-500 text-white rounded-full px-6 py-5 shadow-lg shadow-blue-500/25 border border-blue-400/20">
                 Get Started <ChevronRight className="ml-1 w-4 h-4" />
               </Button>
             </Link>
+
+            {/* Mobile Menu Toggle */}
+            <div className="md:hidden">
+              <Button variant="ghost" size="icon" onClick={() => document.getElementById('mobile-menu')?.classList.toggle('hidden')}>
+                <Menu className="w-6 h-6 text-white" />
+              </Button>
+            </div>
           </div>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        <div id="mobile-menu" className="hidden absolute top-20 left-0 w-full bg-[#020617] border-b border-white/5 p-4 flex flex-col gap-4 shadow-2xl animate-in slide-in-from-top-5">
+          <a href="#features" className="text-lg font-medium text-slate-300 py-2" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Features</a>
+          <a href="#pricing" className="text-lg font-medium text-slate-300 py-2" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Pricing</a>
+          <a href="#about" className="text-lg font-medium text-slate-300 py-2" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>About</a>
+          <Link href="/login" className="w-full">
+            <Button className="w-full bg-blue-600 hover:bg-blue-500 text-white rounded-xl py-6 text-lg">
+              Get Started
+            </Button>
+          </Link>
         </div>
       </header>
 
