@@ -9,12 +9,15 @@ import {
     LayoutDashboard,
     Briefcase,
     CheckSquare,
+    DollarSign,
     Users,
-    LogOut,
     Settings,
     Menu,
-    ChevronRight
+    ChevronRight,
+    MapPin,
+    LogOut
 } from "lucide-react";
+import { FlowAI } from "@/components/FlowAI";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/firebase";
 
@@ -128,8 +131,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </div>
 
             {/* Main Content */}
-            <main className="flex-1 overflow-y-auto z-10 p-6 md:p-8 pt-24 md:pt-8">
+            <main className="min-h-0 overflow-y-auto p-4 md:p-8 relative">
                 {children}
+                <FlowAI />
             </main>
         </div>
     );
