@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { db, auth } from "@/lib/firebase";
 import { collection, query, getDocs, addDoc, deleteDoc, doc, serverTimestamp, where, orderBy } from "firebase/firestore";
 import { useAuth } from "@/contexts/AuthContext";
@@ -281,7 +282,11 @@ export default function ProjectsPage() {
                             ) : (
                                 filteredProjects.map((project) => (
                                     <TableRow key={project.id}>
-                                        <TableCell className="font-medium">{project.name}</TableCell>
+                                        <TableCell className="font-medium">
+                                            <Link href={`/dashboard/projects/${project.id}`} className="hover:underline text-blue-400 hover:text-blue-300">
+                                                {project.name}
+                                            </Link>
+                                        </TableCell>
                                         <TableCell>{project.client}</TableCell>
                                         <TableCell>${project.contractValue?.toLocaleString()}</TableCell>
                                         <TableCell>
@@ -300,6 +305,11 @@ export default function ProjectsPage() {
                                         </TableCell>
                                         <TableCell className="text-right">
                                             <div className="flex justify-end gap-2">
+                                                <Link href={`/dashboard/projects/${project.id}`}>
+                                                    <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500 hover:text-blue-600">
+                                                        <Search className="h-4 w-4" />
+                                                    </Button>
+                                                </Link>
                                                 <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500 hover:text-blue-600">
                                                     <Edit className="h-4 w-4" />
                                                 </Button>

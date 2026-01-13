@@ -172,21 +172,23 @@ export default function DashboardPage() {
                                 </div>
                             ) : (
                                 recentProjects.map(project => (
-                                    <div key={project.id} className="flex items-center justify-between p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 group">
-                                        <div className="space-y-1">
-                                            <div className="font-medium text-sm text-slate-200 group-hover:text-white">{project.name}</div>
-                                            <div className="flex items-center gap-2">
-                                                <div className={`w-1.5 h-1.5 rounded-full ${project.status === 'active' ? 'bg-green-500' : 'bg-slate-500'}`}></div>
-                                                <div className="text-xs text-slate-500 uppercase tracking-wider">{project.status}</div>
+                                    <Link key={project.id} href={`/dashboard/projects/${project.id}`}>
+                                        <div className="flex items-center justify-between p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 group cursor-pointer">
+                                            <div className="space-y-1">
+                                                <div className="font-medium text-sm text-slate-200 group-hover:text-white">{project.name}</div>
+                                                <div className="flex items-center gap-2">
+                                                    <div className={`w-1.5 h-1.5 rounded-full ${project.status === 'active' ? 'bg-green-500' : 'bg-slate-500'}`}></div>
+                                                    <div className="text-xs text-slate-500 uppercase tracking-wider">{project.status}</div>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-32 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                                    <div className="h-full bg-blue-500" style={{ width: `${project.completion}%` }}></div>
+                                                </div>
+                                                <span className="text-xs font-mono text-slate-400 w-8 text-right">{project.completion}%</span>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-32 h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-blue-500" style={{ width: `${project.completion}%` }}></div>
-                                            </div>
-                                            <span className="text-xs font-mono text-slate-400 w-8 text-right">{project.completion}%</span>
-                                        </div>
-                                    </div>
+                                    </Link>
                                 ))
                             )}
                         </div>
