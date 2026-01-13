@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,6 @@ const staggerContainer = {
 };
 
 export default function Home() {
-  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#020617] text-white font-sans selection:bg-blue-500/30 overflow-x-hidden">
@@ -122,55 +121,6 @@ export default function Home() {
                   Start Free Trial
                 </Button>
               </Link>
-              <Link href="#demo">
-                <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white font-semibold text-lg">
-                  <span className="mr-2">▶</span> Watch Demo
-                </Button>
-              </Link>
-            </motion.div>
-
-            {/* Demo Video Section */}
-            <motion.div
-              id="demo"
-              variants={fadeInUp}
-              className="relative mx-auto max-w-4xl aspect-video bg-black rounded-2xl border border-white/10 shadow-2xl overflow-hidden mb-32 group cursor-pointer"
-              onClick={() => setIsPlaying(true)}
-            >
-              {!isPlaying ? (
-                <>
-                  {/* Thumbnail / Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/30 transition-colors z-10">
-                    <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
-                      <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
-                    </div>
-                  </div>
-
-                  {/* Background Image/Gradient (Placeholder for Video Thumbnail) */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900">
-                    {/* Optional: You can put an <Image /> here for the thumbnail */}
-                  </div>
-
-                  <div className="absolute bottom-4 left-4 text-sm text-slate-300 z-10 font-medium bg-black/50 px-3 py-1 rounded-full backdrop-blur-md">
-                    ▶ Watch Platform Demo (2:14)
-                  </div>
-                </>
-              ) : (
-                /* Direct HTML5 Video Player (Guaranteed to work) */
-                <video
-                  width="100%"
-                  height="100%"
-                  controls
-                  autoPlay
-                  playsInline
-                  muted={false}
-                  loop
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/demo.mp4" type="video/mp4" />
-                  <source src="https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              )}
             </motion.div>
           </motion.div>
 
