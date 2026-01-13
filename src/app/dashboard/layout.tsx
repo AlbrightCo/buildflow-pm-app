@@ -68,12 +68,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
             {/* Sidebar (Premium Dark Glass) */}
             <aside className="w-64 bg-[#0F172A]/60 backdrop-blur-xl border-r border-white/5 hidden md:flex flex-col z-20 transition-all">
-                <div className="p-6 h-20 flex items-center border-b border-white/5">
-                    <div className="flex items-center gap-3">
-                        <div className="relative w-8 h-8">
-                            <Image src="/logo.png" alt="Logo" fill className="object-contain" />
-                        </div>
-                        <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BuildFlow</span>
+                <div className="p-6 h-24 flex items-center justify-center border-b border-white/5">
+                    <div className="relative w-full h-12 max-w-[180px]">
+                        <Image src="/logo.png" alt="BuildFlow" fill className="object-contain" />
                     </div>
                 </div>
 

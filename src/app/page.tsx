@@ -63,6 +63,12 @@ export default function Home() {
             variants={staggerContainer}
             className="text-center max-w-4xl mx-auto mb-20"
           >
+            <motion.div variants={fadeInUp} className="flex justify-center mb-8">
+              <div className="relative w-32 h-32 md:w-48 md:h-48">
+                <Image src="/logo.png" alt="BuildFlow Logo" fill className="object-contain drop-shadow-2xl" />
+              </div>
+            </motion.div>
+
             <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
               New Version 2.0 Live
@@ -77,7 +83,7 @@ export default function Home() {
               Streamline your projects from bid to closeout. The all-in-one platform designed for modern general contractors who demand precision.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
               <Link href="/login">
                 <Button size="lg" className="h-14 px-8 rounded-full bg-white text-slate-900 hover:bg-slate-200 font-bold text-lg">
                   Start Free Trial
@@ -85,9 +91,27 @@ export default function Home() {
               </Link>
               <Link href="#demo">
                 <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white font-semibold text-lg">
-                  View Live Demo
+                  <span className="mr-2">▶</span> Watch Demo
                 </Button>
               </Link>
+            </motion.div>
+
+            {/* Demo Video Section */}
+            <motion.div
+              id="demo"
+              variants={fadeInUp}
+              className="relative mx-auto max-w-4xl aspect-video bg-black/50 rounded-2xl border border-white/10 shadow-2xl overflow-hidden mb-32 group cursor-pointer"
+            >
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
+                  <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
+                </div>
+              </div>
+              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
+              {/* Replace this text with an actual video embed/iframe when available */}
+              <div className="absolute bottom-4 left-4 text-sm text-slate-400">
+                BuildFlow Platform Demo (2:14)
+              </div>
             </motion.div>
           </motion.div>
 
