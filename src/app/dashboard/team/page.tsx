@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { toast } from "sonner";
 import { db, auth } from "@/lib/firebase";
 import { collection, query, getDocs, addDoc, deleteDoc, doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth"; // Note: This creates auth user, but we're in client side. 
@@ -92,10 +93,12 @@ export default function TeamPage() {
             setIsAddModalOpen(false);
             setNewUser({ firstName: "", lastName: "", email: "", role: "client" });
             fetchUsers();
-            alert("User added to directory. (Note: Auth account not created in this demo version)");
+            toast.success("User added to directory", {
+                description: "They will inherit these permissions when they sign up."
+            });
         } catch (e) {
             console.error(e);
-            alert("Failed to add user");
+            toast.error("Failed to add user");
         } finally {
             setIsSubmitting(false);
         }
