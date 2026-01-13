@@ -12,7 +12,8 @@ import {
     Users,
     ClipboardCheck,
     Settings,
-    ChevronRight
+    ChevronRight,
+    FileSignature
 } from "lucide-react";
 // import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -33,6 +34,7 @@ export default function ProjectLayout({ children }: { children: React.ReactNode 
         { name: "Drawings", href: `/dashboard/projects/${projectId}/drawings`, icon: FileText },
         { name: "Schedule", href: `/dashboard/projects/${projectId}/schedule`, icon: Calendar },
         { name: "Financials", href: `/dashboard/projects/${projectId}/financials`, icon: DollarSign },
+        { name: "Contracts", href: `/dashboard/projects/${projectId}/contracts`, icon: FileSignature },
         { name: "Photos", href: `/dashboard/projects/${projectId}/photos`, icon: ImageIcon },
         { name: "Inspections", href: `/dashboard/projects/${projectId}/inspections`, icon: ClipboardCheck },
         { name: "Team", href: `/dashboard/projects/${projectId}/team`, icon: Users },
