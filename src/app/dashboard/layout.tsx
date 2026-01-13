@@ -12,7 +12,8 @@ import {
     Users,
     LogOut,
     Settings,
-    Menu
+    Menu,
+    ChevronRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/firebase";
@@ -26,12 +27,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         if (!loading) {
             if (!user) {
                 router.push("/login");
-            } else if (userData) {
-                // Check Trial
-                if (userData.subscriptionStatus === 'trial' && new Date() > userData.trialExpiresAt) {
-                    console.log("Trial expired");
-                    // In a real app, redirect or show banner
-                }
             }
         }
     }, [user, userData, loading, router]);
@@ -47,8 +42,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
     if (loading) {
         return (
-            <div className="flex items-center justify-center min-h-screen bg-[var(--bg-secondary)]">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[var(--primary)]"></div>
+            <div className="flex items-center justify-center min-h-screen bg-[#020617]">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
             </div>
         );
     }
@@ -63,74 +58,80 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     ];
 
     return (
-        <div className="flex h-screen bg-[var(--bg-secondary)]">
-            {/* Sidebar (V-7 Style) */}
-            <aside className="w-[var(--sidebar-width)] bg-[var(--sidebar-bg)] text-white hidden md:flex flex-col shadow-2xl z-50 transition-all">
-                <div className="p-5 border-b border-white/10 bg-black/10">
-                    <div className="flex items-center justify-center bg-white rounded-xl py-3 px-4 shadow-sm mb-2">
-                        {/* Logo */}
-                        <div className="relative h-10 w-full max-w-[150px]">
-                            <Image src="/logo.png" alt="BuildFlow PM" fill className="object-contain" />
+        <div className="flex h-screen bg-[#020617] text-slate-200 font-sans selection:bg-blue-500/30 overflow-hidden">
+
+            {/* Background Effects */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute top-[-20%] left-[0%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[128px]" />
+                <div className="absolute bottom-[-20%] right-[0%] w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[128px]" />
+            </div>
+
+            {/* Sidebar (Premium Dark Glass) */}
+            <aside className="w-64 bg-[#0F172A]/60 backdrop-blur-xl border-r border-white/5 hidden md:flex flex-col z-20 transition-all">
+                <div className="p-6 h-20 flex items-center border-b border-white/5">
+                    <div className="flex items-center gap-3">
+                        <div className="relative w-8 h-8">
+                            <Image src="/logo.png" alt="Logo" fill className="object-contain" />
                         </div>
+                        <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BuildFlow</span>
                     </div>
                 </div>
 
-                <nav className="flex-1 overflow-y-auto py-4 sidebar-scroll">
-                    <div className="px-5 mb-2 text-[0.65rem] uppercase tracking-widest text-white/50 font-bold">Main</div>
-                    <div className="space-y-1 px-3">
-                        {navItems.map((item) => {
-                            const isActive = pathname === item.href;
-                            const Icon = item.icon;
-                            return (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-lg text-[0.9rem] font-medium transition-all duration-200 border-l-[3px]
-                                        ${isActive
-                                            ? 'bg-white/20 border-white font-semibold'
-                                            : 'border-transparent hover:bg-white/15 text-white/90'
-                                        }`}
-                                >
-                                    <Icon size={18} className={isActive ? 'opacity-100' : 'opacity-80'} />
-                                    {item.name}
-                                </Link>
-                            );
-                        })}
-                    </div>
+                <nav className="flex-1 overflow-y-auto py-6 px-3 space-y-1">
+                    <div className="px-3 mb-2 text-[0.65rem] uppercase tracking-widest text-slate-500 font-bold">Menu</div>
+                    {navItems.map((item) => {
+                        const isActive = pathname === item.href;
+                        const Icon = item.icon;
+                        return (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative overflow-hidden
+                                    ${isActive
+                                        ? 'bg-blue-600/10 text-blue-400'
+                                        : 'text-slate-400 hover:text-slate-100 hover:bg-white/5'
+                                    }`}
+                            >
+                                {isActive && <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 rounded-r-full"></div>}
+                                <Icon size={18} className={isActive ? 'text-blue-400' : 'text-slate-500 group-hover:text-slate-300'} />
+                                {item.name}
+                            </Link>
+                        );
+                    })}
                 </nav>
 
-                <div className="p-5 border-t border-white/10 bg-black/15">
-                    <div className="flex items-center gap-3 text-white">
-                        <div className="w-9 h-9 bg-white/20 rounded-lg flex items-center justify-center font-bold text-sm">
+                <div className="p-4 border-t border-white/5 bg-black/20">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20">
                             {userData?.firstName?.[0] || user.email?.[0]?.toUpperCase()}
                         </div>
                         <div className="flex-1 min-w-0">
-                            <div className="font-semibold text-sm truncate">
+                            <div className="font-semibold text-sm text-slate-200 truncate">
                                 {userData?.firstName ? `${userData.firstName} ${userData.lastName || ''}` : 'User'}
                             </div>
-                            <div className="text-[0.65rem] opacity-70 truncate capitalize">{userData?.role || 'Member'}</div>
+                            <div className="text-xs text-slate-500 truncate capitalize">{userData?.role || 'Member'}</div>
                         </div>
                         <button
                             onClick={handleLogout}
-                            className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/15 hover:bg-white/25 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
                             title="Log out"
                         >
-                            <LogOut size={14} />
+                            <LogOut size={16} />
                         </button>
                     </div>
                 </div>
             </aside>
 
-            {/* Mobile Header (Visible only on small screens) */}
-            <div className="fixed top-0 left-0 right-0 h-16 bg-[var(--sidebar-bg)] flex md:hidden items-center justify-between px-4 z-40">
-                <div className="font-bold text-white text-lg">BuildFlow PM</div>
-                <button className="text-white p-2">
+            {/* Mobile Header */}
+            <div className="fixed top-0 left-0 right-0 h-16 bg-[#0F172A]/80 backdrop-blur-xl border-b border-white/5 flex md:hidden items-center justify-between px-4 z-40">
+                <span className="font-bold text-lg bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BuildFlow</span>
+                <button className="text-slate-300 p-2">
                     <Menu size={24} />
                 </button>
             </div>
 
             {/* Main Content */}
-            <main className="flex-1 overflow-y-auto p-6 md:p-8 pt-20 md:pt-8 scroll-smooth">
+            <main className="flex-1 overflow-y-auto z-10 p-6 md:p-8 pt-24 md:pt-8">
                 {children}
             </main>
         </div>
