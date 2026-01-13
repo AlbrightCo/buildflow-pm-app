@@ -13,7 +13,8 @@ import {
     ClipboardCheck,
     Settings,
     ChevronRight,
-    FileSignature
+    FileSignature,
+    ClipboardList
 } from "lucide-react";
 // import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -38,6 +39,7 @@ export default function ProjectLayout({ children }: { children: React.ReactNode 
         { name: "Photos", href: `/dashboard/projects/${projectId}/photos`, icon: ImageIcon },
         { name: "Inspections", href: `/dashboard/projects/${projectId}/inspections`, icon: ClipboardCheck },
         { name: "Team", href: `/dashboard/projects/${projectId}/team`, icon: Users },
+        { name: "Daily Reports", href: `/dashboard/projects/${projectId}/daily-reports`, icon: ClipboardList },
     ];
 
     return (
