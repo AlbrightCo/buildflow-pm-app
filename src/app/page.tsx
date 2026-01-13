@@ -85,9 +85,20 @@ export default function Home() {
             variants={staggerContainer}
             className="text-center max-w-4xl mx-auto mb-20"
           >
-            <motion.div variants={fadeInUp} className="flex justify-center mb-8">
-              <div className="relative w-32 h-32 md:w-48 md:h-48">
-                <Image src="/logo.png" alt="BuildFlow Logo" fill className="object-contain drop-shadow-2xl" />
+            <motion.div variants={fadeInUp} className="flex justify-center mb-10 relative">
+              {/* Ambient Glow Behind Logo */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/20 rounded-full blur-[100px] -z-10"></div>
+
+              <div className="relative w-48 h-48 md:w-64 md:h-64 flex items-center justify-center">
+                {/* Glass Container for Logo */}
+                <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 shadow-2xl shadow-blue-500/10"></div>
+
+                <Image
+                  src="/logo.png"
+                  alt="BuildFlow Logo"
+                  fill
+                  className="object-contain p-8 drop-shadow-[0_0_25px_rgba(59,130,246,0.3)]"
+                />
               </div>
             </motion.div>
 
@@ -150,9 +161,13 @@ export default function Home() {
                   height="100%"
                   controls
                   autoPlay
+                  playsInline
+                  muted={false}
+                  loop
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="https://videos.pexels.com/video-files/3840441/3840441-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                  <source src="/demo.mp4" type="video/mp4" />
+                  <source src="https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               )}
