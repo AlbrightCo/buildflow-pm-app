@@ -45,10 +45,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             // 3. Create Firestore Profile with 14-day trial
             const trialExpiresAt = addDays(new Date(), 14);
 
+            const nameParts = name.split(' ');
+            const firstName = nameParts[0];
+            const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
+
             const newProfile: UserProfile = {
                 uid: user.uid,
                 email: user.email,
                 displayName: name,
+                firstName: firstName,
+                lastName: lastName,
                 role: 'client', // Default role
                 trialExpiresAt: trialExpiresAt,
                 subscriptionStatus: 'trial',
@@ -84,6 +90,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                             uid: authUser.uid,
                             email: authUser.email,
                             displayName: data.displayName,
+                            firstName: data.firstName || data.displayName?.split(' ')[0], // Fallback for existing users
+                            lastName: data.lastName,
                             role: data.role,
                             trialExpiresAt: data.trialExpiresAt?.toDate() || new Date(),
                             subscriptionStatus: data.subscriptionStatus,
