@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, FileText, Camera, BarChart3, ChevronRight, Menu } from "lucide-react";
+import { ArrowRight, Clock, FileText, Camera, BarChart3, ChevronRight, Menu, Users } from "lucide-react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -221,131 +221,131 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-    </div>
 
-        {/* Features Section */ }
-  <section id="features" className="py-32 relative">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center mb-20">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">Everything you need to <span className="text-blue-400">build better.</span></h2>
-        <p className="text-slate-400 max-w-2xl mx-auto text-lg">From pre-construction to closeout, BuildFlow connects your office and field teams in one unified platform.</p>
-      </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {[
-          { title: "Smart Scheduling", desc: "AI-powered Gantt charts that predict delays before they happen.", icon: Clock },
-          { title: "Financial Control", desc: "Real-time budget tracking, change orders, and payment applications.", icon: BarChart3 },
-          { title: "Field Management", desc: "Daily logs, photo documentation, and safety reports from mobile.", icon: Camera },
-          { title: "Document Control", desc: "Always-up-to-date drawings, submittals, and RFIs.", icon: FileText },
-          { title: "Team Collaboration", desc: "Unlimited users and permissions for subs, owners, and architects.", icon: Users },
-          { title: "AI Assistant 'Flow'", desc: "Ask questions about your project and get instant answers.", icon: Menu }, // Using Menu as placeholder for AI icon
-        ].map((item, i) => (
-          <div key={i} className="p-8 rounded-2xl bg-[#0F172A]/40 border border-white/5 hover:bg-[#0F172A]/60 transition-colors">
-            <div className="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center mb-6">
-              <item.icon className="w-6 h-6 text-blue-400" />
+        {/* Features Section */}
+        <section id="features" className="py-32 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Everything you need to <span className="text-blue-400">build better.</span></h2>
+              <p className="text-slate-400 max-w-2xl mx-auto text-lg">From pre-construction to closeout, BuildFlow connects your office and field teams in one unified platform.</p>
             </div>
-            <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-            <p className="text-slate-400 leading-relaxed">{item.desc}</p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { title: "Smart Scheduling", desc: "AI-powered Gantt charts that predict delays before they happen.", icon: Clock },
+                { title: "Financial Control", desc: "Real-time budget tracking, change orders, and payment applications.", icon: BarChart3 },
+                { title: "Field Management", desc: "Daily logs, photo documentation, and safety reports from mobile.", icon: Camera },
+                { title: "Document Control", desc: "Always-up-to-date drawings, submittals, and RFIs.", icon: FileText },
+                { title: "Team Collaboration", desc: "Unlimited users and permissions for subs, owners, and architects.", icon: Users },
+                { title: "AI Assistant 'Flow'", desc: "Ask questions about your project and get instant answers.", icon: Menu }, // Using Menu as placeholder for AI icon
+              ].map((item, i) => (
+                <div key={i} className="p-8 rounded-2xl bg-[#0F172A]/40 border border-white/5 hover:bg-[#0F172A]/60 transition-colors">
+                  <div className="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center mb-6">
+                    <item.icon className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-slate-400 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
+        </section>
 
-  {/* Pricing Section */ }
-  <section id="pricing" className="py-20 relative">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center mb-20">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">Simple, transparent <span className="text-purple-400">pricing.</span></h2>
-        <p className="text-slate-400 max-w-2xl mx-auto text-lg">No hidden fees. Unlimited users on all plans.</p>
-      </div>
+        {/* Pricing Section */}
+        <section id="pricing" className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Simple, transparent <span className="text-purple-400">pricing.</span></h2>
+              <p className="text-slate-400 max-w-2xl mx-auto text-lg">No hidden fees. Unlimited users on all plans.</p>
+            </div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div className="p-8 rounded-3xl bg-[#0F172A]/40 border border-white/5 flex flex-col">
-          <h3 className="text-xl font-bold text-slate-300 mb-2">Starter</h3>
-          <div className="text-4xl font-bold mb-6">$399<span className="text-lg text-slate-500 font-normal">/mo</span></div>
-          <p className="text-slate-400 mb-8">Perfect for small GCs and specialty contractors.</p>
-          <ul className="space-y-4 mb-8 flex-1">
-            {["Up to 5 Projects", "Unlimited Users", "Field & Office Tools", "2GB Storage"].map(feat => (
-              <li key={feat} className="flex items-center gap-3 text-slate-300 text-sm">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div> {feat}
-              </li>
-            ))}
-          </ul>
-          <Button variant="outline" className="w-full border-white/10 hover:bg-white/5">Start Trial</Button>
-        </div>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="p-8 rounded-3xl bg-[#0F172A]/40 border border-white/5 flex flex-col">
+                <h3 className="text-xl font-bold text-slate-300 mb-2">Starter</h3>
+                <div className="text-4xl font-bold mb-6">$399<span className="text-lg text-slate-500 font-normal">/mo</span></div>
+                <p className="text-slate-400 mb-8">Perfect for small GCs and specialty contractors.</p>
+                <ul className="space-y-4 mb-8 flex-1">
+                  {["Up to 5 Projects", "Unlimited Users", "Field & Office Tools", "2GB Storage"].map(feat => (
+                    <li key={feat} className="flex items-center gap-3 text-slate-300 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div> {feat}
+                    </li>
+                  ))}
+                </ul>
+                <Button variant="outline" className="w-full border-white/10 hover:bg-white/5">Start Trial</Button>
+              </div>
 
-        <div className="p-8 rounded-3xl bg-gradient-to-b from-blue-900/20 to-[#0F172A]/60 border border-blue-500/30 flex flex-col relative transform md:-translate-y-4">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Most Popular</div>
-          <h3 className="text-xl font-bold text-white mb-2">Growth</h3>
-          <div className="text-4xl font-bold mb-6 text-blue-400">$699<span className="text-lg text-slate-500 font-normal">/mo</span></div>
-          <p className="text-slate-300 mb-8">For growing construction companies.</p>
-          <ul className="space-y-4 mb-8 flex-1">
-            {["Unlimited Projects", "AI Assistant 'Flow'", "Financial Management", "Procore Import/Export", "1TB Storage", "Priority Support"].map(feat => (
-              <li key={feat} className="flex items-center gap-3 text-white text-sm">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div> {feat}
-              </li>
-            ))}
-          </ul>
-          <Button className="w-full bg-blue-600 hover:bg-blue-500">Get Started</Button>
-        </div>
+              <div className="p-8 rounded-3xl bg-gradient-to-b from-blue-900/20 to-[#0F172A]/60 border border-blue-500/30 flex flex-col relative transform md:-translate-y-4">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Most Popular</div>
+                <h3 className="text-xl font-bold text-white mb-2">Growth</h3>
+                <div className="text-4xl font-bold mb-6 text-blue-400">$699<span className="text-lg text-slate-500 font-normal">/mo</span></div>
+                <p className="text-slate-300 mb-8">For growing construction companies.</p>
+                <ul className="space-y-4 mb-8 flex-1">
+                  {["Unlimited Projects", "AI Assistant 'Flow'", "Financial Management", "Procore Import/Export", "1TB Storage", "Priority Support"].map(feat => (
+                    <li key={feat} className="flex items-center gap-3 text-white text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div> {feat}
+                    </li>
+                  ))}
+                </ul>
+                <Button className="w-full bg-blue-600 hover:bg-blue-500">Get Started</Button>
+              </div>
 
-        <div className="p-8 rounded-3xl bg-[#0F172A]/40 border border-white/5 flex flex-col">
-          <h3 className="text-xl font-bold text-slate-300 mb-2">Enterprise</h3>
-          <div className="text-4xl font-bold mb-6">Custom</div>
-          <p className="text-slate-400 mb-8">For large ENR 400 contractors.</p>
-          <ul className="space-y-4 mb-8 flex-1">
-            {["Everything in Growth", "SSO & Advanced Security", "Custom Integrations", "Dedicated Success Manager", "API Access"].map(feat => (
-              <li key={feat} className="flex items-center gap-3 text-slate-300 text-sm">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div> {feat}
-              </li>
-            ))}
-          </ul>
-          <Button variant="outline" className="w-full border-white/10 hover:bg-white/5">Contact Sales</Button>
-        </div>
-      </div>
-    </div>
-  </section>
+              <div className="p-8 rounded-3xl bg-[#0F172A]/40 border border-white/5 flex flex-col">
+                <h3 className="text-xl font-bold text-slate-300 mb-2">Enterprise</h3>
+                <div className="text-4xl font-bold mb-6">Custom</div>
+                <p className="text-slate-400 mb-8">For large ENR 400 contractors.</p>
+                <ul className="space-y-4 mb-8 flex-1">
+                  {["Everything in Growth", "SSO & Advanced Security", "Custom Integrations", "Dedicated Success Manager", "API Access"].map(feat => (
+                    <li key={feat} className="flex items-center gap-3 text-slate-300 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div> {feat}
+                    </li>
+                  ))}
+                </ul>
+                <Button variant="outline" className="w-full border-white/10 hover:bg-white/5">Contact Sales</Button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-  {/* About Section */ }
-  <section id="about" className="py-20 relative border-t border-white/5">
-    <div className="max-w-4xl mx-auto px-6 text-center">
-      <h2 className="text-3xl font-bold mb-6">Built by Builders, for Builders.</h2>
-      <p className="text-slate-400 text-lg leading-relaxed mb-8">
-        BuildFlow was founded with a simple mission: to eliminate the chaos of construction management.
-        We believe that powerful software shouldn't be complicated or expensive. That's why we built a platform
-        that's intuitive enough for the field, but powerful enough for the boardroom.
-      </p>
-      <div className="flex justify-center gap-4">
-        <div className="w-16 h-16 rounded-full bg-slate-800 border border-white/10 overflow-hidden relative">
-          {/* Placeholder for founder image */}
-          <div className="absolute inset-0 flex items-center justify-center text-xs text-slate-500">Img</div>
-        </div>
-        <div className="text-left">
-          <div className="font-bold text-white">Dylan Albright</div>
-          <div className="text-sm text-blue-400">Founder & CEO</div>
-        </div>
-      </div>
-    </div>
-  </section>
+        {/* About Section */}
+        <section id="about" className="py-20 relative border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold mb-6">Built by Builders, for Builders.</h2>
+            <p className="text-slate-400 text-lg leading-relaxed mb-8">
+              BuildFlow was founded with a simple mission: to eliminate the chaos of construction management.
+              We believe that powerful software shouldn't be complicated or expensive. That's why we built a platform
+              that's intuitive enough for the field, but powerful enough for the boardroom.
+            </p>
+            <div className="flex justify-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-slate-800 border border-white/10 overflow-hidden relative">
+                {/* Placeholder for founder image */}
+                <div className="absolute inset-0 flex items-center justify-center text-xs text-slate-500">Img</div>
+              </div>
+              <div className="text-left">
+                <div className="font-bold text-white">Dylan Albright</div>
+                <div className="text-sm text-blue-400">Founder & CEO</div>
+              </div>
+            </div>
+          </div>
+        </section>
 
       </main >
 
-    {/* Footer */ }
-    < footer className = "border-t border-white/5 bg-[#020617] mt-20 py-12" >
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <p className="text-slate-500 mb-4">Trusted by the world's best builders.</p>
-        <div className="flex justify-center gap-8 grayscale opacity-40">
-          {/* Fake logos for effect */}
-          <span className="text-xl font-bold font-serif">Turner</span>
-          <span className="text-xl font-bold font-sans">Bechtel</span>
-          <span className="text-xl font-bold font-mono">SKANSKA</span>
-          <span className="text-xl font-bold">DPR</span>
+      {/* Footer */}
+      < footer className="border-t border-white/5 bg-[#020617] mt-20 py-12" >
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <p className="text-slate-500 mb-4">Trusted by the world's best builders.</p>
+          <div className="flex justify-center gap-8 grayscale opacity-40">
+            {/* Fake logos for effect */}
+            <span className="text-xl font-bold font-serif">Turner</span>
+            <span className="text-xl font-bold font-sans">Bechtel</span>
+            <span className="text-xl font-bold font-mono">SKANSKA</span>
+            <span className="text-xl font-bold">DPR</span>
+          </div>
+          <div className="mt-12 text-sm text-slate-600">
+            © 2026 BuildFlow PM. All rights reserved.
+          </div>
         </div>
-        <div className="mt-12 text-sm text-slate-600">
-          © 2026 BuildFlow PM. All rights reserved.
-        </div>
-      </div>
       </footer >
     </div >
   );

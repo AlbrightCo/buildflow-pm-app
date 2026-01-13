@@ -14,7 +14,7 @@ import {
     Settings,
     ChevronRight
 } from "lucide-react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"; // We might need to install/create this if not standard shadcn import setup yet, but usually it is.
+// import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 
 // If shadcn Tabs aren't installed, I'll use a custom implementation for now or stick to Link-based tabs for cleaner routing.
